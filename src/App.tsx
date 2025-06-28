@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="md:absolute md:translate-x-[-50%] md:left-[50%] md:w-[40rem]">
+    <div className="absolute md:translate-x-[-50%] md:left-[50%] w-full md:w-[40rem] h-full md:shadow-xl bg-white">
       <Header />
       <Body />
     </div>
