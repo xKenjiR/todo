@@ -27,6 +27,7 @@ const Input = ({ addList }: Props) => {
         ref={text}
         className="w-[80%] p-1 px-3 rounded-lg inset-shadow-sm inset-shadow-[rgb(0,0,0,0.3)] outline-0 font-medium"
         type="text"
+        placeholder="things to do..."
       />
       <button
         type="submit"

@@ -3,3 +3,13 @@
 body {
   background: rgb(230, 230, 230);
 }
+
+@layer components {
+  .delete {
+    @apply opacity-0 transition-opacity;
+  }
+
+  .todo:hover .delete {
+    @apply opacity-100;
+  }
+}
