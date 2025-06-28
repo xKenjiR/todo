@@ -3,7 +3,6 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 
 document.documentElement.classList.remove("dark");
-console.log(document.documentElement.classList);
 
 function App() {
   return (
