@@ -5,8 +5,12 @@ body {
 }
 
 @layer components {
+  .app {
+    scrollbar-width: none;
+  }
+
   .delete {
-    @apply opacity-0 transition-opacity;
+    @apply 2xl:opacity-0 transition-opacity;
   }
 
   .todo:hover .delete {
