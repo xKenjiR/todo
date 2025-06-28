@@ -6,19 +6,59 @@ export interface ListItem {
 
 interface Props {
   list: ListItem[];
+  complete: (item: ListItem) => void;
+  deleteItem: (item: ListItem) => void;
 }
 
-const List = ({ list }: Props) => {
+const List = ({ list, complete, deleteItem }: Props) => {
   return (
     <ul className="flex flex-col gap-2 mt-3">
-      {list.map((item) => (
-        <li
-          key={item.id}
-          className="p-3 shadow-md bg-gray-50 hover:bg-gray-100"
-        >
-          {item.message}
-        </li>
-      ))}
+      {list.map((item) =>
+        item.complete ? (
+          ""
+        ) : (
+          <li
+            key={item.id}
+            className="flex justify-between p-3 rounded-md bg-gray-50 hover:bg-gray-100 shadow-md cursor-pointer"
+            onClick={() => complete(item)}
+          >
+            <div className="font-medium">{item.message}</div>
+            <div
+              className="text-red-600 hover:text-red-400 underline"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteItem(item);
+              }}
+            >
+              Delete
+            </div>
+          </li>
+        )
+      )}
+      {list.map((item) =>
+        item.complete ? (
+          <li
+            key={item.id}
+            className="flex justify-between p-3 rounded-md bg-gray-50 hover:bg-gray-100 shadow-md cursor-pointer"
+            onClick={() => complete(item)}
+          >
+            <div className="font-medium line-through opacity-60">
+              {item.message}
+            </div>
+            <div
+              className="text-red-600 hover:text-red-400 underline"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteItem(item);
+              }}
+            >
+              Delete
+            </div>
+          </li>
+        ) : (
+          ""
+        )
+      )}
     </ul>
   );
 };

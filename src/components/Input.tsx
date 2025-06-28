@@ -1,8 +1,31 @@
-const Input = () => {
+import { useEffect, useRef } from "react";
+
+interface Props {
+  addList: (message: string) => void;
+}
+
+const Input = ({ addList }: Props) => {
+  const text = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (text.current) text.current.focus();
+  }, []);
+
   return (
-    <form className="flex gap-2 justify-center">
+    <form
+      className="flex gap-2 justify-center"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (text.current && text.current.value) {
+          addList(text.current.value);
+          text.current.value = "";
+          text.current.focus();
+        }
+      }}
+    >
       <input
-        className="w-[80%] p-1 px-3 rounded-lg inset-shadow-sm inset-shadow-[rgb(0,0,0,0.3)] outline-0"
+        ref={text}
+        className="w-[80%] p-1 px-3 rounded-lg inset-shadow-sm inset-shadow-[rgb(0,0,0,0.3)] outline-0 font-medium"
         type="text"
       />
       <button
