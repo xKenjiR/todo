@@ -25,13 +25,13 @@ const Input = ({ addList }: Props) => {
     >
       <input
         ref={text}
-        className="w-[80%] p-1 px-3 rounded-lg inset-shadow-sm inset-shadow-[rgb(0,0,0,0.3)] outline-0 font-medium"
+        className="w-[80%] p-1 px-3 rounded-lg dark:bg-gray-500 dark:text-white inset-shadow-sm inset-shadow-[rgb(0,0,0,0.3)] transition-colors outline-0 font-medium"
         type="text"
         placeholder="things to do..."
       />
       <button
         type="submit"
-        className="py-2 px-3 rounded-lg bg-blue-400 hover:bg-blue-500 text-white font-medium transition-colors cursor-pointer"
+        className="py-2 px-3 rounded-lg bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium transition-colors cursor-pointer"
       >
         Add
       </button>

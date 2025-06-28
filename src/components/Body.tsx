@@ -3,15 +3,13 @@ import Input from "./Input";
 import type { ListItem } from "./List";
 import List from "./List";
 
-const localListString = localStorage.getItem("list");
-
-const localList = localListString ? JSON.parse(localListString) : [];
+const localList = localStorage.list ? JSON.parse(localStorage.list) : [];
 
 const Body = () => {
   const [list, setList] = useState<ListItem[]>(localList);
 
   useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(list));
+    localStorage.list = JSON.stringify(list);
   }, [list]);
 
   return (

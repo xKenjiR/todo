@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
-  background: rgb(230, 230, 230);
+  @apply bg-gray-200 dark:bg-gray-900 transition-colors;
 }
 
 @layer components {
